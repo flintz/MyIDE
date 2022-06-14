@@ -1,9 +1,17 @@
-"Vundle settings ==============================================================
+"Vundle ====== ==============================================================
 set nocompatible              "be iMproved, required
 filetype off                  "required
 
 "so ~/.vim/plugins.vim
 "so %                         "source this file
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+"Plugin 'tpope/vim-vinegar'
+Plugin 'preservim/nerdtree'
+
+call vundle#end()
+filetype plugin indent on
 
 "Syntax =======================================================================
 syntax enable
@@ -41,6 +49,9 @@ augroup autosourcing
 	autocmd!
 	autocmd BufWritePost .vimrc source %
 augroup END
+
+"Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree
 
 "Search =======================================================================
 set hlsearch
