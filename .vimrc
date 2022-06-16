@@ -1,5 +1,3 @@
-"Vundle ====== ==============================================================
-set nocompatible              "be iMproved, required
 filetype off                  "required
 
 "so ~/.vim/plugins.vim
@@ -7,8 +5,9 @@ filetype off                  "required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-vinegar'
 Plugin 'preservim/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -51,13 +50,14 @@ augroup autosourcing
 augroup END
 
 "Start NERDTree and leave the cursor in it.
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree | wincmd p
 
 "Search =======================================================================
 set hlsearch
 set incsearch
 
 "Mapping ======================================================================
+
 "Make it easy edit files
 nmap <Leader>ev :tabedit $MYVIMRC<cr> 
 
@@ -66,3 +66,17 @@ nmap <Leader>q :q!<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>a :wq<CR>
 
+"Split management
+set splitbelow
+set splitright
+nmap <C-h> <C-w><C-h>
+nmap <C-l> <C-w><C-l>
+
+"Shortcut to open NERDTree
+nnoremap <Leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+"CntrP
+nmap <C-R> :CtrlPBufTag<cr>
